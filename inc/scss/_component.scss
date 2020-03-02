@@ -1,0 +1,206 @@
+/*! == COMPONENTS == */
+
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 1em 4em;
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $supporting-font;
+    font-size: 0.75em;
+    letter-spacing: 0.08em;
+    background: $brand-secondary;
+    color: white;
+    transition: color 0.5s ease;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+        color: $brand-secondary;
+    }
+
+    &:before {
+            @include childOverlay;
+            width: 0;
+            background: $brand-primary;
+            transition: width 0.3s ease;
+    }
+
+    &:hover:before {
+        width:100%
+    }
+
+    span {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__prompt {
+        text-align: left;
+        padding:1em 6em 1em 1em;
+
+        &:after {
+            position: absolute;
+            top:    0.5em;
+            right: 1em;
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+
+    }
+
+    &__ghost {
+        background:transparent;
+        border:2px solid $brand-secondary;
+        color: $brand-secondary;
+        &:hover {
+            color: $brand-primary;
+        }
+        &:before {
+            background:$brand-secondary;
+        }
+    }
+
+    &__fullwidth {
+        display: block;
+        text-align: center;
+        padding:1em 2em 2em;
+        &:after {
+            top:initial;
+            bottom:0;
+            left:1em;
+            content: '\f078';
+        }
+    }
+    &__dark-hover {
+        &:hover {
+            color: $brand-primary;
+        }
+        &:before {
+            background:$brand-dark-grey;
+        }
+    }
+}
+
+#kglogo {
+    fill:white;
+    max-width: 250px;
+    opacity:0;
+    transition: opacity 3s ease-in-out;
+    transition-delay: 1.5s;
+}
+
+.loaded #kglogo {
+    opacity:1;
+}
+
+
+.logo-holder {
+    text-align: center;
+    margin-top: -10px;
+
+  #logo {
+    width:80px;
+    height:30px;
+  }
+
+  #silverless {
+    opacity:0.6;
+    transition:opacity 0.5s ease-in-out;
+
+    path {
+        fill:white;
+    }
+  }
+
+  #created {
+    opacity:0;
+    transform: translateY(50px);
+    transition: 1s transform ease, 2s opacity ease;
+
+    path {
+        fill:white;
+    }
+  }
+
+  &:hover {
+    cursor:pointer;
+
+    #silverless {
+      opacity:0.8;
+    }
+
+    #created {
+      opacity:0.8;
+      transform: translateY(0);
+    }
+  }
+}
+
+.tour-link a {
+    margin-top: 2em;
+    display: inline-block;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    img {
+        width:70px;
+    }
+
+    span {
+        display: block;
+        font-size: 0.7em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: white;
+        transition: color 0.5s ease;
+
+        &:hover {
+            color: $brand-secondary;
+        }
+    }
+}
+
+.scrolled .tour-link a {
+    opacity:0;
+}
+
+
+#countdown {
+    position: relative;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        transform: rotateY(-180deg) rotateZ(-90deg);
+    }
+
+    svg circle {
+        stroke-dasharray: 113px;
+        stroke-dashoffset: 0px;
+        stroke-linecap: round;
+        stroke-width: 2px;
+        stroke: $brand-dark-grey;
+        fill: none;
+        animation: countdown 10s linear infinite forwards;
+    }
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
