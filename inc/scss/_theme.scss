@@ -1,0 +1,37 @@
+.container-fluid{
+	max-width:rem-calc(1920);
+}
+
+.primary_bg{
+	background-color:$brand-primary;
+	color: white;
+}
+.secondary_bg{
+	background-color:$brand-dark-grey;
+	color: white;
+}
+
+#rooms{
+	.row{
+		&:nth-of-type(odd){
+			.room-card{
+				&__carousel{
+					order: 1
+				}
+				&__content{
+					order: 2
+				}
+			}
+		}
+		&:nth-of-type(even){
+			.room-card{
+				&__carousel{
+					order: 2
+				}
+				&__content{
+					order: 1
+				}
+			}
+		}
+	}
+}

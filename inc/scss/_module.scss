@@ -450,8 +450,7 @@ a.closeTrigger:before {
 .testimonial-slider {
     position: relative;
     margin-bottom: 5em;
-    font-family: $supporting-font;
-    color: white;
+    font-family: $brand-font;
 
     &__item {
       width: 80%;
@@ -459,17 +458,15 @@ a.closeTrigger:before {
       font-style: italic;
       text-align: center;
 
-      .quotemarks {
-          display: inline-block;
-          font-family: $brand-font;
-          color: $brand-dark-grey;
-      }
-
       span {
           display: block;
           font-style: normal;
           color: $brand-secondary;
       }
+    }
+    &__attribution{
+        text-transform: uppercase;
+        font-family: $body-font;
     }
 }
 

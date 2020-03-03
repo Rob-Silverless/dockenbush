@@ -57,24 +57,30 @@ get_header();?>
 
     </div>
 
-<!-- ******************* Card Fullwidth ******************* -->
-<div id="rooms"></div>
+</div>
+
+<div class="container-fluid">
+
+<div id="rooms">
 
 <?php if( have_rows('bedrooms') ): while( have_rows('bedrooms') ): the_row();   ?>
 
-<?php if( get_sub_field('display_format') == 'full-width' ): ?>
+<?php
+$background = get_sub_field( 'background_colour' );?>
 
-        <div class="room-card <?php the_sub_field('display_format');?>">
+    <div class="row mb1 pl1 pr1">
 
-            <div class="room-card__carousel standard owl-carousel owl-theme">
+        <div class="room-card__carousel col-8 pl0 pr0">
 
-            <?php
+            
+
+            <div class="standard owl-carousel owl-theme">
+
+                <?php
             $images = get_sub_field('images');
             foreach ($images as $image):?>
 
-                <div class="room-card__carousel__item">
-
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                <div class="room-card__carousel__item" style="background-image:url(<?php echo $image['url']; ?>);">
 
                 </div>
 
@@ -82,83 +88,27 @@ get_header();?>
 
             </div>
 
-            <div class="room-card__content">
+            
 
+        </div>
 
+        <div class="col-4 pt4 pl3 pr3 pb4 <?php echo $background?> room-card__content">
 
-                <div class="row">
+            <div class="row">
 
-                    <div class="col-10 offset-1">
+                <div class="col-12">
 
-                        <h4 class="heading heading__md heading__alt-color mb1 room-title"><?php the_sub_field('room_title');?></h4>
-
-                    </div>
-
-                    <div class="col-sm-4 offset-sm-1 col-10 offset-1">
-
-                        <?php the_sub_field('room_description');?>
-
-                    </div>
-
-                    <div class="col-sm-6 offset-sm-1 col-10 offset-1 icon-list">
-
-                        <?php get_template_part( 'template-parts/icon', 'list' );?>
-
-                    </div>
-
-                    <div class="col-sm-6 offset-sm-1 col-10 offset-1">
-
-                        <a href="#contact" type="button" class="button mt1 mb1"><span>Enquire Now</span></a>
-
-                    </div>
+                    <h4 class="heading heading__md heading__light mb1 room-title"><?php the_sub_field('room_title');?></h4>
 
                 </div>
 
-            </div>
-
-    </div><!--card-->
-
-<?php endif; ?>
-
-<!-- ******************* Card 3/4  ******************* -->
-
-<?php if( get_sub_field('display_format') == 'three-quarters' ): ?>
-
-    <div class="room-card <?php the_sub_field('display_format');?>">
-
-        <div class="row">
-
-            <div class="col-sm-8">
-
-                <div class="room-card__carousel standard owl-carousel owl-theme">
-
-                <?php
-                $images = get_sub_field('images');
-                foreach ($images as $image):?>
-
-                    <div class="room-card__carousel__item" style="background-image: url(<?php echo $image['url']; ?>);" alt="<?php echo $image['alt'];?>">
-
-                    </div>
-
-                    <?php endforeach;?>
-
-                </div>
-
-            </div>
-
-            <div class="col-sm-4 offset-sm-0 col-10 offset-1">
-
-                <div class="room-card__content">
-
-                    <h4 class="heading heading__md heading__alt-color mb1 mt1 room-title"><?php the_sub_field('room_title');?></h4>
+                <div class="col-12">
 
                     <?php the_sub_field('room_description');?>
 
-                    <div class="icon-list">
+                </div>
 
-                        <?php get_template_part( 'template-parts/icon', 'list' );?>
-
-                    </div>
+                <div class="col-12">
 
                     <a href="#contact" type="button" class="button mt1 mb1"><span>Enquire Now</span></a>
 
@@ -166,87 +116,30 @@ get_header();?>
 
             </div>
 
-        </div><!--r-->
-
-    </div><!--card-->
-
-<?php endif; ?>
-
-<!-- ******************* Card 1/2  ******************* -->
-
-<?php if( get_sub_field('display_format') == 'half' ): ?>
-
-    <div class="room-card <?php the_sub_field('display_format');?>">
-
-        <div class="row">
-
-            <div class="col-sm-6">
-
-                <div class="room-card__carousel standard owl-carousel owl-theme">
-
-                <?php
-                $images = get_sub_field('images');
-                foreach ($images as $image):?>
-
-                    <div class="room-card__carousel__item" style="background-image: url(<?php echo $image['url']; ?>);" alt="<?php echo $image['alt'];?>">
-
-                    </div>
-
-                    <?php endforeach;?>
-
-                </div>
-
-            </div>
-
-            <div class="col-sm-6 offset-sm-0 col-10 offset-1">
-
-                <div class="room-card__content">
-
-                    <h4 class="heading heading__md heading__alt-color mb1 mt1 room-title"><?php the_sub_field('room_title');?></h4>
-
-                    <?php the_sub_field('room_description');?>
-
-                    <div class="icon-list">
-
-                        <?php get_template_part( 'template-parts/icon', 'list' );?>
-
-                    </div>
-
-                    <a href="#contact" type="button" class="button mt1 mb1"><span>Enquire Now</span></a>
-
-                </div>
-
-            </div>
-
-        </div><!--r-->
-
-    </div><!--card-->
-
-<?php endif; ?>
-
-<?php endwhile; endif; ?>
-
-<div class="owl-carousel testimonial-slider">
-  <?php if (have_rows('testimonial', 'option')):
-        while (have_rows('testimonial', 'option')) : the_row();
-  ?>
-
-    <div class="testimonial-slider__item">
-
-
-
-      <p><span class="quotemarks">"</span><?php the_sub_field('testimonial', 'option');?><span class="quotemarks">"</span>
-      <span><?php the_sub_field('attribution', 'option');?></span>
-      </p>
-
-      <div id="countdown">
-          <svg>
-              <circle r="18" cx="20" cy="20"></circle>
-          </svg>
-      </div>
+        </div>
 
     </div>
-  <?php endwhile;  endif; ?>
+
+<?php endwhile; endif; ?>
+</div>
+
+<div class="container">
+    <div class="owl-carousel testimonial-slider mt5 mb5">
+      <?php if (have_rows('testimonial', 'option')):
+            while (have_rows('testimonial', 'option')) : the_row();
+      ?>
+
+        <div class="testimonial-slider__item">
+
+
+
+          <p><?php the_sub_field('testimonial', 'option');?><span class="quotemarks">"</span>
+          <span class="testimonial-slider__attribution"><?php the_sub_field('attribution', 'option');?></span>
+          </p>
+
+        </div>
+      <?php endwhile;  endif; ?>
+    </div>
 </div>
 
 <!-- ******************* Gallery  ******************* -->
