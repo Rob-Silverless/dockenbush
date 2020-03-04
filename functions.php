@@ -150,14 +150,6 @@ body.post-type-page div#postdivrich {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Call To Action',
-		'menu_title'	=> 'Call To Action',
-		'menu_slug' 	=> 'call-to-action',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
 	
 }
  
@@ -180,16 +172,4 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+show_admin_bar(false);

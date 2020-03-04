@@ -11,10 +11,9 @@ get_header();?>
 
 <!-- ******************* Hero Content ******************* -->
 
-<?php $heroImage = get_field('hero_image');?>
-
-    <div class="wrapper-hero ml1 mr1 mt1 mb1" style="background-image: url(<?php echo $heroImage['url']; ?>);">
-
+    <div class="wrapper-hero ml1 mr1 mt1 mb1">
+        <h1 class="heading heading__xl heading__light text-center font700 heading__caps"><?php the_field('heading');?></h1>
+        <h2 class="heading heading__xl heading__light text-center font300 heading__caps"><?php the_field('sub_heading');?></h2>
     </div>
 
 <div id="first" class="container">
@@ -110,7 +109,7 @@ $background = get_sub_field( 'background_colour' );?>
 
                 <div class="col-12">
 
-                    <a href="#contact" type="button" class="button mt1 mb1"><span>Enquire Now</span></a>
+                    <a href="#contact" type="button" class="button mt1 mb1 button__light"><span>Enquire Now</span></a>
 
                 </div>
 
@@ -124,21 +123,20 @@ $background = get_sub_field( 'background_colour' );?>
 </div>
 
 <div class="container">
-    <div class="owl-carousel testimonial-slider mt5 mb5">
-      <?php if (have_rows('testimonial', 'option')):
-            while (have_rows('testimonial', 'option')) : the_row();
-      ?>
-
-        <div class="testimonial-slider__item">
-
-
-
-          <p><?php the_sub_field('testimonial', 'option');?><span class="quotemarks">"</span>
-          <span class="testimonial-slider__attribution"><?php the_sub_field('attribution', 'option');?></span>
-          </p>
-
-        </div>
-      <?php endwhile;  endif; ?>
+    <div class="offset-2 col-8">
+        <?php if (have_rows('testimonial', 'option')):?>
+            <div class="testimonial-slider__quote mt5 mb2 text-center">
+                <?php get_template_part("inc/img/quote"); ?>
+            </div>
+            <div class="owl-carousel testimonial-slider mb5">
+                <?php while (have_rows('testimonial', 'option')) : the_row();?>
+                    <div class="testimonial-slider__item">
+                        <p><?php the_sub_field('testimonial', 'option');?></p>
+                        <span class="testimonial-slider__attribution"><?php the_sub_field('attribution', 'option');?></span>
+                    </div>
+                <?php endwhile;?>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -169,117 +167,146 @@ $background = get_sub_field( 'background_colour' );?>
 
     </div><!--row-->
 
-<!-- ******************* Multi Panel  ******************* -->
-<div id="nairobi"></div>
+<!-- ******************* Features  ******************** -->
 
-<section class="multi-panel">
+<div id="features"></div>
+<div class="container mb5 mt2">
+    <div class="row">
+        <?php if( have_rows('features') ){
+            $featureRow = 0;
+            while( have_rows('features') ){
+                $featureRow++;
+                the_row();
+                if($featureRow % 5 == 0){;?>
+                    <div class="col text-center mb2 pr2 pl2 feature-item">
+                        <div class="pb1"><img src="<?php the_sub_field('icon');?>" alt="<?php the_sub_field('heading');?>"/></div>
+                        <div class="heading heading__caps heading__xs"><?php the_sub_field('heading');?></div>
+                    </div>
+                    <div class="w-100"></div>
+                <?php  } else { ;?>
+                    <div class="col text-center mb2 pr2 pl2 feature-item">
+                        <div class="pb1"><img src="<?php the_sub_field('icon');?>" alt="<?php the_sub_field('heading');?>"/></div>
+                        <div class="heading heading__caps heading__xs"><?php the_sub_field('heading');?></div>
+                    </div>
+                <?php }
+            }
+        } ;?>
+    </div>
+</div>
 
-	<div class="multi-panel__top-section">
+<!-- ******************* CTA  ************************* -->
 
-		<h3 class="heading heading__md heading__alt-color text-center mb2">Things to Do In Nairobi</h3>
+<?php if((get_field("call_to_action_heading")) || (get_field("call_to_action_image"))):
+$image = get_field('call_to_action_image');;?>
+<div class="container-fluid text-center pb5 pt7 cta" style="background-image: url(<?php echo $image['url']; ?>);">
+    <div class="col pb2">
+        <h4 class="heading heading__light heading__caps heading__md font700"><?php the_field('call_to_action_heading');?></h4>
+    </div>
+    <div class="col">
+        <a href="#contact" type="button" class="button mt1 mb1 button__light"><span>Enquire Now</span></a>
+    </div>
+</div>
+<?php endif ;?>
 
-			<?php if( have_rows('tabs') ):
-                $row = 1;
-				while( have_rows('tabs') ): the_row();?>
 
-				    <a href="#<?php echo $row; ?>" role="tab" data-toggle="tab" class="<?php if($row == 1) {echo 'active';}?> multi-panel__trigger">
+<!-- ******************* Local Area  ********************* -->
 
-				        <div class="<?php if($row == 1) {echo 'active';}?>">
+<div id="local"></div>
 
-    						<img src="<?php the_sub_field('icon'); ?>"/>
+    <div class="leader text-center mb10 mt5 container">
 
-    						<h2 class="heading heading__xs heading__alt-color-grey text-center mb2"><?php the_sub_field('heading'); ?></h2>
+        <div class="row">
+
+            <div class="col-sm-6 offset-sm-3 col-10 offset-1 text-center mt2">
+
+                    <h3 class="heading heading__caps heading__lg font700 heading__alt-color pb1">Local Area</h3>
+
+                    <div class="content">
+
+                        <div class="content__lead">
+
+                            <?php the_field('local_area_copy');?>
 
                         </div>
 
-					</a>
+                        <a class="openTrigger">Read More</a>
 
-				<?php $row++; endwhile; ?>
+                       <div class="content__hidden">
 
-			<?php endif; ?>
+                            <?php the_field('local_area_copy_more');?>
 
-    </div><!--top section-->
+                            <a class="closeTrigger">Read Less</a>
 
-	<div class="multi-panel__lower-section">
-
-			<?php if( have_rows('tabs') ): ?>
-
-            <div class="tab-content" id="myTabContent">
-
-				<?php $row = 1; // number rows ?>
-
-				<?php while( have_rows('tabs') ): the_row();?>
-
-					<div class="tab-pane fade show <?php if($row == 1) {echo 'active';}?>" id="<?php echo $row; ?>" role="tabpanel">
-
-						<div class="multi-panel__lower-section__panel">
-
-                            <div class="room-card__carousel standard owl-carousel owl-theme">
-
-                                <?php
-                                $images = get_sub_field('images');
-                                foreach ($images as $image):?>
-
-                                    <div class="room-card__carousel__item" style="background-image: url(<?php echo $image['url']; ?>);" alt="<?php echo $image['alt'];?>">
-
-                                    </div>
-
-                                <?php endforeach;?>
-
-                            </div>
-
-							<div class="content">
-
-							<h3 class="heading heading__md heading__alt-color mb1"><?php the_sub_field('activity_heading');?></h3>
-
-							<?php the_sub_field('activity_description');?>
-
-							</div>
-
-						</div>
-
-				    </div>
-
-                <?php $row++; endwhile;?>
-
-			</div>
-
-		<?php endif;?>
+                       </div>
 
 
-	</div>
+                    </div>
 
-</section><!--bottom section-->
+                    <div class="text-center mt2">
 
-<!-- ******************* Map Panel  ******************* -->
+                    <?php if (have_rows('local_area_images')):
+                            while (have_rows('local_area_images')) : the_row();
+                            $icon = get_sub_field('icon');
+                      ?>
 
-<?php echo do_shortcode('[wp_mapbox_gl_js map_id="819"]');?>
+                      
 
-<div id="contact"></div>
+                          <img src="<?php echo $icon['url']?>" class="ml2 mr2" />
 
-<div class="contact-section">
+                      
 
-    <div class="row">
 
-        <div class="col-12">
+                    <?php endwhile;  endif; ?>
 
-            <h4 class="heading heading__md heading__alt-color text-center">Contact Us</h4>
-
-        </div>
-
-        <div class="col-sm-3 offset-sm-1 col-10 offset-1">
-
-                <p><strong><?php the_field('telephone_number', 'option');?></strong></p>
-
-                <p><strong><?php the_field('email_address', 'option');?></strong></p>
-
-                <p><strong><?php the_field('address', 'option');?></strong></p>
+                    </div>
 
             </div>
 
-        <div class="col-sm-4 offset-sm-0 col-10 offset-1">
+        </div>
 
-                <?php echo do_shortcode('[contact-form-7 id="537" title="Main Contact Form"]');?>
+    </div>
+
+</div>
+
+
+
+<!-- ******************* Map Panel  ******************* -->
+
+<div class="container-fluid pl1 pr1 pb1">
+
+    <?php echo do_shortcode('[wp_mapbox_gl_js map_id="107"]');?>
+
+</div>
+
+<!-- ******************* Contact ******************* -->
+
+<div id="contact">
+
+    <div class="contact-section ml1 mr1 mb1 row pb2 pr2 pl2 pt2  align-items-center">
+
+        <div class="col-6">
+
+                 <h4 class="heading heading__md heading__light heading__caps font300 pb2">Contact Us</h4>
+
+                <div class="heading heading__sm heading__caps heading__light pb1 font700">Dockenbush Cottage</div>
+                <div class="heading heading__xs heading__caps heading__light pb2"><?php the_field('address', 'option');?></div>
+
+                <div class="heading heading__xs heading__caps heading__light pb1">
+                    E: <a href="mailto:<?php the_field('email_address', 'option');?>" class="heading heading__caps heading__light"><?php the_field('email_address', 'option');?></a>
+                </div>
+
+                <div class="heading heading__xs heading__caps heading__light">
+                    T: <a href="mailto:<?php the_field('telephone_number', 'option');?>" class="heading heading__caps heading__light"><?php the_field('telephone_number', 'option');?></a>
+                </div>
+
+            </div>
+
+        <div class="col-4 contact-form ">
+                <div class="pl2">
+
+                    <?php echo do_shortcode('[contact-form-7 id="5" title="Contact form 1"]');?>
+
+                </div>
 
             </div>
 

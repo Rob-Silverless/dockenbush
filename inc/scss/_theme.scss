@@ -10,28 +10,98 @@
 	background-color:$brand-dark-grey;
 	color: white;
 }
+.underline{
+	border-bottom:1px solid $brand-tertiary;
+}
 
 #rooms{
 	.row{
-		&:nth-of-type(odd){
-			.room-card{
-				&__carousel{
-					order: 1
-				}
-				&__content{
-					order: 2
-				}
-			}
-		}
 		&:nth-of-type(even){
 			.room-card{
 				&__carousel{
+					order: 1;
+					padding-right:1em;
+				}
+				&__content{
 					order: 2
+				}
+			}
+		}
+		&:nth-of-type(odd){
+			.room-card{
+				&__carousel{
+					order: 2;
+					padding-left:1em;
 				}
 				&__content{
 					order: 1
 				}
 			}
 		}
+	}
+}
+.feature-item{
+	max-width:20%;
+}
+.cta{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+}
+.contact-form{
+	label{
+		width:100%;
+	}
+	span{
+		width:100%;
+		display:block;
+	}
+	textarea{
+		height:rem-calc(150);
+		width:100%;
+		font-size:rem-calc(14);
+		&::placeholder{
+			color:$brand-tertiary;
+			font-weight:300;
+			font-size:rem-calc(14);
+		}
+	}
+	input{
+		width:100%;
+		&[type=submit]{
+			width:auto;
+		}
+		font-size:rem-calc(14);
+		&::placeholder{
+			color:$brand-tertiary;
+			font-weight:300;
+			font-size:rem-calc(14);
+		}
+	}
+}
+
+.btt{
+	border-bottom:1px solid white;
+	margin-left:0 !important;
+	padding-left:0 !important;
+	padding-bottom:rem-calc(2);
+}
+.fixed{
+	position:fixed;
+	&__bottom{
+		bottom:0;
+	}
+}
+.contact-bar{
+	width:100%;
+	background-color:white;
+	color:$brand-tertiary;
+	z-index:1000;
+	padding:.5em 1em;
+	a{
+		color:$brand-tertiary;
+	}
+	br{
+		display:none;
 	}
 }

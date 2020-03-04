@@ -38,13 +38,9 @@
 
 		<nav>
 
-			<div class="container">
+			<div class="container-fluid">
 
 				<div class="row">
-
-					<div class="col-lg-1 col-sm-2 brand">
-						<a href="#page" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">KG</a>
-					</div>
 
 					<div class="col-lg-9 col-sm-5 col-6">
 
@@ -72,21 +68,16 @@
 
 					</div>
 
-					<div class="col-lg-2 col-sm-5 col-6 text-right telephone">
-						<?php the_field('telephone_number', 'option');?>
+					<div class="col-lg-2 col-sm-5 col-6 text-right">
+						<?php $logo = get_field('logo', 'option');?>
+
+							<a href="https://my.matterport.com/show/?m=ykHDH1yGKzE&brand=0" target="_blank">
+
+								<img src="<?php echo $logo['url'];?>"/>
+
+							</a>
 					</div>
 
-
-				</div>
-
-				<div class="text-right">
-					<?php $logo = get_field('logo', 'option');?>
-
-					<a href="https://my.matterport.com/show/?m=ykHDH1yGKzE&brand=0" target="_blank">
-
-						<img src="<?php echo $logo['url'];?>"/>
-
-					</a>
 
 				</div>
 

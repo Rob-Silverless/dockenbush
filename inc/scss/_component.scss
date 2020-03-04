@@ -84,6 +84,30 @@
             background:$brand-dark-grey;
         }
     }
+    &__light{
+        background:transparent;
+        color:$brand-primary;
+        border:2px solid white;
+        &:before {
+            background:white;
+            width:100%;
+        }
+        &:hover {
+            color: white;
+            &:before{
+                width:0;
+            }
+        }
+    }
+    &__dark{
+        background:$brand-dark;
+        border:2px solid $brand-dark;
+        &:hover {
+            color: white;
+            background:$brand-primary;
+            transition:$fastEffect;
+        }
+    }
 }
 
 #kglogo {

@@ -7,21 +7,25 @@
 ?>
 
 </main>
-<footer class="footer mb1">
+<footer class="footer mb2">
 
     <div class="container-fluid">
 
         <div class="socket">
 
-            <div class="row">
+            <div class="row align-items-end">
 
                 <div class="col-4 socials">
 
-                    <?php if( have_rows('social_links', 'option') ): while( have_rows('social_links', 'option') ): the_row(); ?>
+                    <div class="pb2">
 
-                    <a href="<?php the_sub_field('page_link'); ?>"><i class="fab fa-<?php the_sub_field('name'); ?>"></i></a>
+                        <?php if( have_rows('social_links', 'option') ): while( have_rows('social_links', 'option') ): the_row(); ?>
 
-                    <?php endwhile; endif; ?>
+                        <a href="<?php the_sub_field('page_link'); ?>"><i class="fab fa-<?php the_sub_field('name'); ?>"></i></a>
+
+                        <?php endwhile; endif; ?>
+
+                    </div>
 
                     Copyright &copy; <?php echo date ('Y');?> Dockenbush Cottage
 
@@ -121,9 +125,15 @@
 
                 <div class="col-4 socket__colophon">
 
-                    <a href="/terms-and-conditions">Terms</a>
+                    <div class="pb2"><a href="#page" class="btt">Back to top</a></div>
 
-                    <a href="/privacy">Privacy</a>
+                    <div>
+
+                        <a href="/terms-and-conditions">Terms</a>
+
+                        <a href="/privacy">Privacy</a>
+
+                    </div>
 
                 </div>
 
@@ -134,6 +144,20 @@
     </div><!--container-->
 
 </footer>
+
+
+<div class="fixed fixed__bottom contact-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <span class="heading heading__xs heading__caps font700">Dockenbush Cottage</span><span class="heading heading__xs"> <?php the_field('address', 'option');?> </span><span class="heading heading__xs font700"> <a href="tel:<?php the_field('telephone_number', 'option');?>"><?php the_field('telephone_number', 'option');?></a></span>
+            </div>
+            <div class="col-2 text-right">
+                <span class="heading heading__xs"><a href="#contact" class="underline">Contact</a></span>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div><!-- #page -->
 

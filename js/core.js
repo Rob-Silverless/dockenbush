@@ -60,7 +60,7 @@ jQuery(document).ready(function( $ ) {
         margin:10,
         nav:true,
     	navClass: ['owl-prev', 'owl-next'],
-        dots:false,
+        dots:true,
         responsive:{
             0:{
                 items:1
@@ -79,7 +79,8 @@ jQuery(document).ready(function( $ ) {
         autoplayTimeout:10000,
         loop:true,
         margin:10,
-        nav: false,
+        nav: true,
+        navClass: ['testimonial-prev', 'testimonial-next'],
         dots:false,
         responsive:{
             0:{

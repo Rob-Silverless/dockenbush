@@ -6,8 +6,8 @@
     position: relative;
     display: grid;
     justify-content: center;
-    align-content: end;
-    height: calc(100vh - 5em);
+    align-content: center;
+    height: calc(100vh - 3em);
     z-index: 50;
     padding-bottom: 5em;
 
@@ -148,7 +148,7 @@ a.closeTrigger:before {
     .owl-nav {
         position: absolute;
         top:50%;
-        width:100%;
+        width:calc(100% - 1.4em);
         margin-top: -2em;
         button {
             z-index: 2;
@@ -163,8 +163,8 @@ a.closeTrigger:before {
             &:after {
                 content:'';
                 position: absolute;
-                width:50px;
-                height: 50px;
+                width:75px;
+                height: 75px;
                 background: hsla(0, 0%, 100%, 0.3);
                 transition: background 0.5s ease;
             }
@@ -176,12 +176,12 @@ a.closeTrigger:before {
             &:before {
                 content:'';
                 position: absolute;
-                width: 30px;
-                height: 30px;
-                top: 10px;
+                width: 20px;
+                height: 20px;
+                top: 28px;
                 transform:rotate(-45deg);
-                border-top:2px solid black;
-                border-left:2px solid black;
+                border-top:2px solid white;
+                border-left:2px solid white;
                 z-index: 5;
             }
 
@@ -189,7 +189,7 @@ a.closeTrigger:before {
                 right: 50px;
 
                 &:before {
-                    right:-30px;
+                    right:-44px;
                     transform: rotate(135deg);
                 }
             }
@@ -197,12 +197,42 @@ a.closeTrigger:before {
                 left: 0;
 
                 &:before {
-                    left:15px;
+                    left:28px;
                 }
             }
             &:focus {
                 -webkit-appearance: none;
                 outline:none;
+            }
+        }
+    }
+    .owl-dots{
+        position:absolute;
+        bottom:0;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        margin-bottom:rem-calc(20);
+        button{
+            &:focus{
+                outline:none;
+            }
+            span{
+                height:rem-calc(8);
+                width:rem-calc(8);
+                background:$brand-tertiary;
+                display:block;
+                margin-left:rem-calc(10);
+                margin-right:rem-calc(10);
+                border-radius:50%;
+                &:hover{
+                    cursor:pointer;
+                }
+            }
+            &.active{
+                span{
+                    background:white;
+                }
             }
         }
     }
@@ -270,9 +300,10 @@ a.closeTrigger:before {
 
 .gallery {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, rem-calc(300));
     margin-bottom: 5em;
+    grid-gap:1em;
 
     a {
         @include backgroundCover;
@@ -282,10 +313,8 @@ a.closeTrigger:before {
         transition:all 0.3s ease;
 
         &:hover {
-            transform: scale3d(1.03, 1.03, 1);
             position: relative;
             z-index: 500;
-            box-shadow: 0 10px 5px 5px hsla(0, 0%, 0%, 0.2);
         }
 
         &:after {
@@ -294,7 +323,7 @@ a.closeTrigger:before {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: hsla(11, 53%, 45%, 0.69);
+            background-color: rgba($brand-primary, 0.92);
             background-size: 2em;
             background-repeat: no-repeat;
             background-position: center;
@@ -304,6 +333,60 @@ a.closeTrigger:before {
 
         &:hover:after {
             opacity: 1;
+        }
+    }
+    .lodge-gallery{
+        &:nth-of-type(13n-12){
+            grid-column:1/2;
+            grid-row:1/3;
+        }
+        &:nth-of-type(13n-11){
+            grid-column:2/4;
+            grid-row:1/2;
+        }
+        &:nth-of-type(13n-10){
+            grid-column:4/5;
+            grid-row:1/2;
+        }
+        &:nth-of-type(13n-9){
+            grid-column:2/3;
+            grid-row:2/3;
+        }
+        &:nth-of-type(13n-8){
+            grid-column:3/4;
+            grid-row:2/3;
+        }
+        &:nth-of-type(13n-7){
+            grid-column:4/5;
+            grid-row:2/4;
+        }
+        &:nth-of-type(13n-6){
+            grid-column:1/3;
+            grid-row:3/4;
+        }
+        &:nth-of-type(13n-5){
+            grid-column:3/4;
+            grid-row:3/4;
+        }
+        &:nth-of-type(13n-4){
+            grid-column:1/2;
+            grid-row:4/6;
+        }
+        &:nth-of-type(13n-3){
+            grid-column:2/4;
+            grid-row:4/5;
+        }
+        &:nth-of-type(13n-2){
+            grid-column:4/5;
+            grid-row:4/5;
+        }
+        &:nth-of-type(13n-1){
+            grid-column:2/3;
+            grid-row:5/6;
+        }
+        &:nth-of-type(13n){
+            grid-column:3/5;
+            grid-row:5/6;
         }
     }
 }
@@ -442,31 +525,89 @@ a.closeTrigger:before {
 }
 
 .contact-section {
-    padding:2em;
-    background: $brand-light-grey;
+    background: $brand-primary;
+    color:white;
 }
 
 
 .testimonial-slider {
     position: relative;
     margin-bottom: 5em;
-    font-family: $brand-font;
+    font-family: $body-font;
+    font-weight:300;
 
     &__item {
       width: 80%;
       margin: 0 auto;
-      font-style: italic;
       text-align: center;
-
-      span {
-          display: block;
-          font-style: normal;
-          color: $brand-secondary;
-      }
     }
     &__attribution{
         text-transform: uppercase;
-        font-family: $body-font;
+        color:$brand-tertiary;
+    }
+    .owl-nav {
+        position: absolute;
+        top:35%;
+        width:100%;
+        margin-top: -2em;
+        button {
+            z-index: 2;
+            position: absolute;
+            font-size: 4em !important;
+            border:none;
+            &:hover{
+                &:before{
+                    border-top:1px solid $brand-primary;
+                    border-left:1px solid $brand-primary;
+                    transform:$fastEffect;
+                }
+            }
+            span {
+                display: none;
+            }
+
+            &:after {
+                content:'';
+                position: absolute;
+                width:30px;
+                height: 30px;
+                
+            }
+
+            &:before {
+                content:'';
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                top: 28px;
+                transform:rotate(-45deg);
+                border-top:1px solid $brand-secondary;
+                border-left:1px solid $brand-secondary;
+                z-index: 5;
+                cursor:pointer;
+                transform:$fastEffect;
+            }
+
+            &.testimonial-next {
+                right: 50px;
+
+                &:before {
+                    right:-50px;
+                    transform: rotate(135deg);
+                }
+            }
+            &.testimonial-prev {
+                left: 0;
+
+                &:before {
+                    left:0px;
+                }
+            }
+            &:focus {
+                -webkit-appearance: none;
+                outline:none;
+            }
+        }
     }
 }
 
