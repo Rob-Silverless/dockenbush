@@ -14,6 +14,44 @@
 	border-bottom:1px solid $brand-tertiary;
 }
 
+.hero-slider{
+	display:block;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom:0;
+	z-index: 1;
+	position:absolute;
+
+	&__item{
+		height: 100%;
+		width: 100%;
+		background-size:cover;
+	}
+	.hero-prev,.hero-next{
+		border:0;
+		cursor: pointer;
+		&:after{
+			display: none;
+		}
+		&:before{
+			padding:rem-calc(10);
+		}
+	}
+	.hero-next{
+		right:2vw;
+		&:before{
+			transform: rotate(135deg) !important;
+		}
+	}
+	.hero-prev{
+		left:2vw;
+	}
+	.owl-dots{
+		padding-bottom:rem-calc(50);
+	}
+}
+
 #rooms{
 	.row{
 		&:nth-of-type(even){
@@ -103,5 +141,62 @@
 	}
 	br{
 		display:none;
+	}
+}
+
+#things{
+	background-color:$brand-dark-grey;
+	border:5px solid $brand-dark-grey;
+	transition:$fastEffect;
+	&:hover{
+		background-color:transparent;
+		transition: $fastEffect;
+		.heading{
+			color:$brand-dark-grey;
+		}
+		svg path{
+			fill:$brand-dark-grey;
+		}
+	}
+}
+#eat{
+	background-color: $brand-primary;
+	border:5px solid $brand-primary;
+	transition:$fastEffect;
+	&:hover{
+		background-color:transparent;
+		transition: $fastEffect;
+		.heading{
+			color:$brand-primary;
+		}
+		svg path{
+			fill:$brand-primary;
+		}
+	}
+}
+
+.things-container{
+	background-color:$brand-dark-grey;
+	&__list{
+		column-count: 2;
+		list-style: none;
+		margin-left: 0;
+		padding-left:0;
+		li{
+			margin-bottom:rem-calc(16);
+			padding-left:rem-calc(12);
+			position:relative;
+			&:before{
+				position:absolute;
+				background-color:$brand-tertiary;
+				width: rem-calc(5);
+				height: rem-calc(5);
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				content: '';
+				border-radius:50%;
+			}
+		}
 	}
 }

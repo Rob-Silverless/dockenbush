@@ -11,7 +11,15 @@ get_header();?>
 
 <!-- ******************* Hero Content ******************* -->
 
+
+
     <div class="wrapper-hero ml1 mr1 mt1 mb1">
+        <div class="owl-carousel hero-slider">
+        <?php if( have_rows('hero_slider') ): while( have_rows('hero_slider') ): the_row();   ?>
+            <?php $hero_image = get_sub_field('image'); ?>
+            <div class="hero-slider__item" style="background-image:url(<?php echo $hero_image['url'];?>)"></div>
+        <?php endwhile; endif; ?>
+        </div>
         <h1 class="heading heading__xl heading__light text-center font700 heading__caps"><?php the_field('heading');?></h1>
         <h2 class="heading heading__xl heading__light text-center font300 heading__caps"><?php the_field('sub_heading');?></h2>
     </div>
@@ -268,7 +276,41 @@ $image = get_field('call_to_action_image');;?>
 
 </div>
 
+<!-- ******************* Things to do  **************** -->
 
+<div class="container-fluid pl1 pr1 pb1">
+    <div class="row">
+        <div class="col-6">
+            <div class="pb3 pt3 text-center" id="things">
+                <div class="heading heading__lg heading__caps heading__tertiary-color"><?php get_template_part( 'inc/img/things' );?> <?php the_field('thigns_to_do_title');?>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="pb3 pt3 text-center" id="eat">
+                <div class="heading heading__lg heading__caps heading__tertiary-color"><?php get_template_part( 'inc/img/eat' );?> <?php the_field('places_to_eat_title');?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row pl1 pr1 pb1">
+        <div class="col-12 pr2 pl2  things-container">
+            <div class="row">
+                <div class="col-8 pt2 pb2" style="border-right:1px solid white">
+                    <div class="heading heading__sm heading__caps heading__tertiary-color pb2">Click to explore the area</div>
+                    <ul class="things-container__list">
+                    <?php if( have_rows('things_to_do_list') ): while( have_rows('things_to_do_list') ): the_row();   ?>
+                        <li class="heading heading__caps heading__light heading__xs font700"><?php the_sub_field('title');?></li>
+                    <?php endwhile;  endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- ******************* Map Panel  ******************* -->
 

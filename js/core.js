@@ -92,6 +92,15 @@ jQuery(document).ready(function( $ ) {
         }
     })
 
+    $('.hero-slider').owlCarousel({
+        animateOut: 'fadeOut',
+        loop:true,
+        nav:true,
+        navClass: ['hero-prev', 'hero-next'],
+        dots:true,
+        items:1,
+    });
+
 /* CLASS AND FOCUS ON CLICK */
 
     $('.nav-wrapper__trigger').click(function() {

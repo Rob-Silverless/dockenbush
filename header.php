@@ -40,19 +40,19 @@
 
 			<div class="container-fluid">
 
-				<div class="row">
+				<div class="row align-items-center">
 
-					<div class="col-lg-9 col-sm-5 col-6">
+					<div class="col-lg-9 col-sm-5 col-6 row align-items-center">
 
 						<div class="nav-wrapper">
 
-							<div class="nav-wrapper__trigger hamburger hamburger--collapse">
+							<!--<div class="nav-wrapper__trigger hamburger hamburger--collapse">
 								<div class="hamburger-box">
 									<div class="hamburger-inner">
     									<span>Menu</span>
     									</div>
 								</div>
-							</div>
+							</div>-->
 
 							<div class="nav-wrapper__menu">
 
@@ -68,14 +68,8 @@
 
 					</div>
 
-					<div class="col-lg-2 col-sm-5 col-6 text-right">
-						<?php $logo = get_field('logo', 'option');?>
-
-							<a href="https://my.matterport.com/show/?m=ykHDH1yGKzE&brand=0" target="_blank">
-
-								<img src="<?php echo $logo['url'];?>"/>
-
-							</a>
+					<div class="col-lg-2 col-sm-5 col-6 text-right nav-logo">
+						<?php get_template_part("inc/img/logo"); ?>
 					</div>
 
 
