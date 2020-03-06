@@ -33,7 +33,7 @@ jQuery(document).ready(function( $ ) {
         return false;
     });
 
-    $('.wrapper-hero a').click(function(){
+    $('.btt').click(function(){
         $('html, body').animate({
             scrollTop: $( $(this).attr('href') ).offset().top -50
         }, 1500);
@@ -57,7 +57,6 @@ jQuery(document).ready(function( $ ) {
     $('.standard').owlCarousel({
         animateOut: 'fadeOut',
         loop:true,
-        margin:10,
         nav:true,
     	navClass: ['owl-prev', 'owl-next'],
         dots:true,
@@ -99,6 +98,8 @@ jQuery(document).ready(function( $ ) {
         navClass: ['hero-prev', 'hero-next'],
         dots:true,
         items:1,
+        autoplay: true,
+        autoplayTimeout: 8000
     });
 
 /* CLASS AND FOCUS ON CLICK */
@@ -128,4 +129,30 @@ jQuery(document).ready(function( $ ) {
       $('.openTrigger').removeClass("hide");
     });
 
+    // Thigns to do and Places to eat
+
+    $('.things-container__list-item').on('click', function(e){
+        e.preventDefault();
+        var item = $(this).attr('data-item');
+        $('.things-container__item').fadeOut(500);
+        $('#' + item).delay(500).fadeIn();
+    });
+    $('.eat-container__list-item').on('click', function(e){
+        e.preventDefault();
+        var item = $(this).attr('data-item');
+        $('.eat-container__item').fadeOut(500);
+        $('#' + item).delay(500).fadeIn();
+
+    });
+    $('#things').on('click', function(e){
+        e.preventDefault();
+        $('.eat-container').slideUp();
+        $('.things-container').slideToggle();
+    });
+    $('#eat').on('click', function(e){
+        e.preventDefault();
+        $('.things-container').slideUp();
+        $('.eat-container').slideToggle();
+
+    });
 });//Don't remove ---- end of jQuery wrapper

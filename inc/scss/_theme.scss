@@ -151,6 +151,7 @@
 	&:hover{
 		background-color:transparent;
 		transition: $fastEffect;
+		cursor: pointer;
 		.heading{
 			color:$brand-dark-grey;
 		}
@@ -163,6 +164,7 @@
 	background-color: $brand-primary;
 	border:5px solid $brand-primary;
 	transition:$fastEffect;
+	cursor: pointer;
 	&:hover{
 		background-color:transparent;
 		transition: $fastEffect;
@@ -175,13 +177,15 @@
 	}
 }
 
-.things-container{
+.things-container, .eat-container{
 	background-color:$brand-dark-grey;
+	display: none;
 	&__list{
 		column-count: 2;
 		list-style: none;
 		margin-left: 0;
 		padding-left:0;
+		transition:$fastEffect;
 		li{
 			margin-bottom:rem-calc(16);
 			padding-left:rem-calc(12);
@@ -197,6 +201,24 @@
 				content: '';
 				border-radius:50%;
 			}
+			&:hover{
+				color: $brand-tertiary;
+				cursor: pointer;
+				transition:$fastEffect;
+			}
 		}
 	}
+	&__item{
+		display: none;
+		&:first-of-type{
+			display: block;
+		}
+		a{
+			color:white;
+			border-bottom:1px solid white;
+		}
+	}
+}
+.eat-container{
+	background-color: $brand-primary;
 }
