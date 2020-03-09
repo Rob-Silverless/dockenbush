@@ -2,7 +2,7 @@
 
     <div class="contact-section ml1 mr1 mb1 row pb2 pr2 pl2 pt2  align-items-center">
 
-        <div class="col-6">
+        <div class="col-sm-12 col-md-6 text-center text-md-left pb2">
 
                  <h4 class="heading heading__md heading__light heading__caps font300 pb2">Contact Us</h4>
 
@@ -19,7 +19,7 @@
 
             </div>
 
-        <div class="col-4 contact-form ">
+        <div class="col-sm-12 col-md-4 contact-form ">
                 <div class="pl2">
 
                     <?php echo do_shortcode('[contact-form-7 id="5" title="Contact form 1"]');?>

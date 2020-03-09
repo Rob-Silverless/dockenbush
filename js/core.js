@@ -2,6 +2,7 @@
 //@prepros-prepend mixitup.js
 //@prepros-prepend mixitup-pagination.js
 //@prepros-prepend jquery.magnific-popup.js
+//@prepros-prepend ../owl/owl.carousel.min.js
 
 jQuery(document).ready(function( $ ) {
 
@@ -144,15 +145,30 @@ jQuery(document).ready(function( $ ) {
         $('#' + item).delay(500).fadeIn();
 
     });
+    $('.eat-mob-container__list-item').on('click', function(e){
+        e.preventDefault();
+        var item = $(this).attr('data-item');
+        $('.eat-mob-container__item').fadeOut(500);
+        $('#' + item).delay(500).fadeIn();
+
+    });
     $('#things').on('click', function(e){
         e.preventDefault();
         $('.eat-container').slideUp();
+        $('.eat-mob-container').slideUp();
         $('.things-container').slideToggle();
     });
     $('#eat').on('click', function(e){
         e.preventDefault();
         $('.things-container').slideUp();
         $('.eat-container').slideToggle();
+
+    });
+
+    $('#eat-mob').on('click', function(e){
+        e.preventDefault();
+        $('.things-container').slideUp();
+        $('.eat-mob-container').slideToggle();
 
     });
 });//Don't remove ---- end of jQuery wrapper

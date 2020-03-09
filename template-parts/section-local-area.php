@@ -46,7 +46,7 @@ $image = get_field('call_to_action_image');;?>
 
                     </div>
 
-                    <div class="text-center mt2">
+                    <div class="text-center mt2 local-images">
 
                     <?php if (have_rows('local_area_images')):
                             while (have_rows('local_area_images')) : the_row();

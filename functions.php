@@ -11,22 +11,12 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 /** = Enqueue scripts and styles. Another just for the dev branch. = */ 
 function karengables_scripts() {
-	wp_enqueue_style( 'karengables-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'dockenbush-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'sl-core-js', get_template_directory_uri() . '/js/compiled.js', array(), true, $in_footer = false );
 	
-    wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), true); 
-	
 }
-add_action( 'wp_enqueue_scripts', 'karengables_scripts' );
-
-//** Add Owl Carousel Assets
-
-function sl_owl_assets() {
-	//load owl js
-	wp_enqueue_script( 'sw-old-js', get_template_directory_uri() . '/owl/owl.carousel.min.js', array(), true );
-}
-add_action( 'wp_enqueue_scripts', 'sl_owl_assets' );
+add_action( 'wp_enqueue_scripts', 'dockenbush_scripts' );
 
 function sl_custom_menu() {
   register_nav_menus(

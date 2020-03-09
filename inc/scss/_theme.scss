@@ -14,6 +14,10 @@
 	border-bottom:1px solid $brand-tertiary;
 }
 
+.show-sm{
+	display:none;
+}
+
 .hero-slider{
 	display:block;
 	top: 0;
@@ -30,6 +34,7 @@
 	}
 	.hero-prev,.hero-next{
 		border:0;
+		background-color:transparent;
 		cursor: pointer;
 		&:after{
 			display: none;
@@ -50,6 +55,9 @@
 	.owl-dots{
 		padding-bottom:rem-calc(50);
 	}
+}
+.hero-content{
+	z-index:10;
 }
 
 #rooms{
@@ -160,7 +168,7 @@
 		}
 	}
 }
-#eat{
+#eat, #eat-mob{
 	background-color: $brand-primary;
 	border:5px solid $brand-primary;
 	transition:$fastEffect;
@@ -177,9 +185,12 @@
 	}
 }
 
-.things-container, .eat-container{
+.things-container, .eat-container, .eat-mob-container{
 	background-color:$brand-dark-grey;
 	display: none;
+	&__lbox{
+		border-right:1px solid white;
+	}
 	&__list{
 		column-count: 2;
 		list-style: none;
@@ -219,6 +230,12 @@
 		}
 	}
 }
-.eat-container{
+.eat-container, .eat-mob-container{
 	background-color: $brand-primary;
+}
+
+.owl-nav{
+	button{
+		background-color:transparent;
+	}
 }

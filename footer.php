@@ -7,7 +7,7 @@
 ?>
 
 </main>
-<footer class="footer mb2">
+<footer class="footer mb2 ">
 
     <div class="container-fluid">
 
@@ -15,7 +15,7 @@
 
             <div class="row align-items-end">
 
-                <div class="col-4 socials">
+                <div class="col-12 col-md-4 socials text-center text-md-left order-2 order-md-1 pb2">
 
                     <div class="pb2">
 
@@ -31,7 +31,7 @@
 
                 </div>
 
-                <div class="col-4">
+                <div class="col-12 col-md-4 order-3 order-md-2 pb2">
     <div class="logo-holder">
         <a href="https://silverless.co.uk">
             <svg version="1.0" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -123,7 +123,7 @@
 </div>
 
 
-                <div class="col-4 socket__colophon">
+                <div class="col-12 col-md-4 socket__colophon order-1 order-md-3 text-center text-md-right pb2">
 
                     <div class="pb2"><a href="#page" class="btt">Back to top</a></div>
 

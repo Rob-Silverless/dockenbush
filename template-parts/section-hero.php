@@ -5,6 +5,10 @@
         <div class="hero-slider__item" style="background-image:url(<?php echo $hero_image['url'];?>)"></div>
     <?php endwhile; endif; ?>
     </div>
-    <h1 class="heading heading__xl heading__light text-center font700 heading__caps"><?php the_field('heading');?></h1>
-    <h2 class="heading heading__xl heading__light text-center font300 heading__caps"><?php the_field('sub_heading');?></h2>
+    <div class="container col-24 hero-content">
+    	<div class="col">
+    		<h1 class="heading heading__xl heading__light text-center font700 heading__caps"><?php the_field('heading');?></h1>
+    		<h2 class="heading heading__xl heading__light text-center font300 heading__caps"><?php the_field('sub_heading');?></h2>
+    	</div>
+    </div>
 </div>
