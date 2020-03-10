@@ -1,6 +1,6 @@
 <?php
 /**
- * karengables functions and definitions
+ * dockenbush functions and definitions
  *
  * @package Dockenbush
  */
@@ -10,7 +10,7 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
 /** = Enqueue scripts and styles. Another just for the dev branch. = */ 
-function karengables_scripts() {
+function dockenbush_scripts() {
 	wp_enqueue_style( 'dockenbush-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'sl-core-js', get_template_directory_uri() . '/js/compiled.js', array(), true, $in_footer = false );
