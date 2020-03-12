@@ -2,6 +2,10 @@
 
 <div id="rooms">
 
+<div class="">
+    <?php echo do_shortcode("[hb_booking_form]"); ?>
+</div>
+
 <?php if( have_rows('bedrooms') ): while( have_rows('bedrooms') ): the_row();   ?>
 
 <?php
