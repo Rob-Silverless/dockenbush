@@ -20,8 +20,10 @@ jQuery(document).ready(function( $ ) {
 
         if (scroll >= 100) {
             $("body").addClass("scrolled");
+            $("booking-form").addClass("booking-form-scroll");
         } else {
             $("body").removeClass("scrolled");
+            $("booking-form").removeClass("booking-form-scroll");
         }
     });
 
@@ -52,6 +54,37 @@ jQuery(document).ready(function( $ ) {
             }
         });
     });
+
+
+// ========== Add class if in viewport on page load
+
+  $.fn.isOnScreen = function() {
+    var win = $(window);
+
+    var viewport = {
+      top: win.scrollTop(),
+      left: win.scrollLeft()
+    };
+    viewport.right = viewport.left + win.width();
+    viewport.bottom = viewport.top + win.height();
+
+    var bounds = this.offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+
+    return !(
+      viewport.right < bounds.left ||
+      viewport.left > bounds.right ||
+      viewport.bottom < bounds.top ||
+      viewport.top > bounds.bottom
+    );
+  };
+
+  $(".booking-form").each(function() {
+    if ($(this).isOnScreen()) {
+      $(this).addClass("active");
+    }
+  });
 
 // GLOBAL OWL CAROUSEL SETTINGS
 

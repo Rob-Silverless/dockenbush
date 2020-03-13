@@ -1,10 +1,9 @@
+<div class="booking-form sticky pl2 pr2 pb2 pt2 mr1 ml1">
+    <?php echo do_shortcode("[hb_booking_form]"); ?>
+</div>
 <div class="container-fluid">
 
 <div id="rooms">
-
-<div class="">
-    <?php echo do_shortcode("[hb_booking_form]"); ?>
-</div>
 
 <?php if( have_rows('bedrooms') ): while( have_rows('bedrooms') ): the_row();   ?>
 

@@ -94,6 +94,57 @@
 	background-position:center;
 	background-repeat:no-repeat;
 }
+.booking-form{
+	background-color:$brand-tertiary;
+	z-index: 501;
+	top:rem-calc(66);
+	color: white;
+	font-family: $brand-font;
+	max-height: calc(100vh - 100px);
+	overflow-y: scroll;
+	h3{
+		font-size:rem-calc(26);
+		display: none;
+	}
+	input, select{
+		padding:rem-calc(5) rem-calc(10);
+		border:1px solid transparent;
+		height: rem-calc(50);
+		line-height: rem-calc(40);
+		font-family: $body-font;
+		color: $brand-dark-grey;
+		&[type="submit"]{
+			background-color:$brand-secondary;
+			color: white;
+			text-transform: uppercase;
+			font-family: $body-font;
+			font-weight: 300;
+			&:hover{
+				color: $brand-primary;
+				background-color: white;
+			}
+		}
+	}
+	.hb-details-fields{
+		display: flex;
+		flex-wrap: wrap;
+		p{
+			padding-right:1em;
+			width: 20%;
+			&:nth-of-type(5n){
+				padding-right:0;
+			}
+		}
+	}
+	.hb-resa-summary-content{
+		background-color:transparent;
+	}
+	&.active{
+		padding-top:rem-calc(10);
+		padding-bottom:rem-calc(10);
+	}
+
+}
 .contact-form{
 	label{
 		width:100%;
