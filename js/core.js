@@ -36,7 +36,7 @@ jQuery(document).ready(function( $ ) {
         return false;
     });
 
-    $('.btt').click(function(){
+    $('.btt, a#booking-link').click(function(){
         $('html, body').animate({
             scrollTop: $( $(this).attr('href') ).offset().top -50
         }, 1500);
@@ -80,9 +80,26 @@ jQuery(document).ready(function( $ ) {
     );
   };
 
+  $.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom < viewportTop;
+    };
+
   $(".booking-form").each(function() {
     if ($(this).isOnScreen()) {
       $(this).addClass("active");
+    }
+  });
+
+  $(window).on('resize scroll', function() {
+    if ($(".booking-form").isInViewport()) {
+        console.log('on screen');
+      $(".make-booking").addClass("active");
+    } else {
+        $(".make-booking").removeClass("active");
     }
   });
 

@@ -1,6 +1,8 @@
-<div class="booking-form sticky pl2 pr2 pb2 pt2 mr1 ml1">
-    <?php echo do_shortcode("[hb_booking_form]"); ?>
+
+<div class="booking-form sticky pl2 pr2 pb2 pt2 mr1 ml1" id="make-a-booking">
+    <?php echo do_shortcode('[hb_booking_form search_only="yes" redirection_url="/bookings/rooms"]'); ?>
 </div>
+
 <div class="container-fluid">
 
 <div id="rooms">

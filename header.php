@@ -55,12 +55,19 @@
 							</div>
 
 							<div class="nav-wrapper__menu">
-
-							    <?php
-							    wp_nav_menu( array(
-							    'theme_location' => 'main-menu',
-							    'container_class' => 'mainMenu' ) );
-							    ?>
+								<?php if ( is_front_page()):?>
+								    <?php
+								    wp_nav_menu( array(
+								    'theme_location' => 'main-menu',
+								    'container_class' => 'mainMenu' ) );
+								    ?>
+								<?php else:?>
+									<?php
+								    wp_nav_menu( array(
+								    'theme_location' => 'subpage-menu',
+								    'container_class' => 'mainMenu' ) );
+								    ?>
+								<?php endif;?>
 
 							</div>
 

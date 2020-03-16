@@ -145,7 +145,14 @@
 
 </footer>
 
+<!-- Mobile Make Booking Button -->
+<div class="fixed fixed__bottom  make-booking pb2 pt2 mb1 text-center">
+    <a class="heading heading__caps heading__sm heading__light" id="booking-link" href="#make-a-booking">
+        Make a booking
+    </a>
+</div>
 
+<!-- Fixed Contact Us Bar -->
 <div class="fixed fixed__bottom contact-bar">
     <div class="container-fluid">
         <div class="row">

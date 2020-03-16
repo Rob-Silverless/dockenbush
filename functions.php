@@ -22,7 +22,8 @@ function sl_custom_menu() {
   register_nav_menus(
     array(
       'main-menu' => __( 'Main Menu' ),
-      'about-menu' => __( 'About Menu' )
+      'about-menu' => __( 'About Menu' ),
+      'subpage-menu' => __( 'Sub Page Menu' ),
     )
   );
 }

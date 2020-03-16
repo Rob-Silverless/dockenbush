@@ -8,28 +8,69 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+	<div id="page">
 
-			the_post_navigation();
+		<!-- ******************* Hero Content ******************* -->
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+		<?php get_template_part( 'template-parts/bookings-hero' );?>
 
-		endwhile; // End of the loop.
-		?>
+		<div class="booking-form pl2 pr2 pb2 pt2 mr1 ml1">
+		    <?php echo do_shortcode('[hb_booking_form]'); ?>
+		</div>
 
-		</main><!-- #main -->
+		<div class="pl2 pr2 pb2 pt2 mr1 ml1">
+			<div class="container cols-offset-2-10">
+				<div class="col">
+					<div id="about"></div>
+
+					    <div class="leader text-center mb3 mt5">
+
+					        <div class="row">
+
+					            <div class="col-sm-6 offset-sm-3 col-10 offset-1 text-center mt2">
+
+					                    <div class="content">
+
+					                        <div class="content__lead">
+
+					                            <?php the_field('content');?>
+
+					                        </div>
+
+					                        <a class="openTrigger">Read More</a>
+
+					                       <div class="content__hidden">
+
+					                            <?php the_field('content_more');?>
+
+					                            <a class="closeTrigger">Read Less</a>
+
+					                       </div>
+
+
+					                    </div>
+
+					            </div>
+
+					        </div>
+
+					    </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div><!-- #primary -->
 
+<?php endwhile; else: ?>
+
+	<p>Sorry, no posts matched your criteria.</p>
+
+<?php endif; ?>
+
 <?php
-get_sidebar();
 get_footer();

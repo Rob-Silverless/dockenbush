@@ -101,7 +101,6 @@
 	color: white;
 	font-family: $brand-font;
 	max-height: calc(100vh - 100px);
-	overflow-y: scroll;
 	h3{
 		font-size:rem-calc(26);
 		display: none;
@@ -288,5 +287,26 @@
 .owl-nav{
 	button{
 		background-color:transparent;
+	}
+}
+.page_hero{
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	display:flex;
+	align-items:center;
+}
+main{
+	min-height:100vh;
+}
+.make-booking{
+	display:none;
+	background-color:$brand-tertiary;
+	z-index:501;
+	top:100vh;
+	transition:$slowEffect;
+	&.active{
+		top:calc(100vh - 60px);
+		transition:$slowEffect;
 	}
 }

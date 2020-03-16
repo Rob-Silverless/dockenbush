@@ -210,6 +210,9 @@ body .hamburger-inner span {
 }
 
 /*---CONTENT---*/
+.booking-form.sticky {
+    position: relative;
+}
 .hide-sm{
   display:none;
 }
@@ -326,6 +329,18 @@ body .hamburger-inner span {
 .show-sm{
   display:block;
 }
+.booking-form{
+  max-height:none;
+  .hb-details-fields{
+    p{
+        padding-right:1em;
+        width: 50%;
+        &:nth-of-type(5n){
+          padding-right:1em;
+        }
+    }
+  }
+}
 
 .socket{
   i{
@@ -334,6 +349,9 @@ body .hamburger-inner span {
   }
 }
 /*---FOOTER---*/
+.make-booking{
+  display:block;
+}
   
 }/*---end extra small mq---*/
 
