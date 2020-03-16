@@ -341,6 +341,16 @@ body .hamburger-inner span {
     }
   }
 }
+.hb-column-half{
+  p{
+    width:100% !important;
+  }
+}
+.hb-resa-summary-content{
+  div{
+    padding-top:rem-calc(15);
+  }
+}
 
 .socket{
   i{
