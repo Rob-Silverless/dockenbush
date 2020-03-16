@@ -7,12 +7,12 @@
 
 get_header();
 ?>
+<!-- ******************* Hero Content ******************* -->
+
+		<?php get_template_part( 'template-parts/bookings-hero' );?>
+
 
 <div class="container">
-
-<a href="<?php echo get_home_url(); ?>" type="button" class="button mt1 mb1"><span>Back To Site</span></a>
-
-<h1 class="heading heading__xl heading__light heading__alt-font" style="margin-top: 0.5em;"><?php the_title();?></h1>
 
     <div class="row">
         

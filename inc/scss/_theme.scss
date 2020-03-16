@@ -107,6 +107,11 @@
 		font-size:rem-calc(26);
 		display: none;
 	}
+	select{
+		-webkit-appearance: none  !important;
+		-webkit-border-radius: 0px !important;
+		border-radius:0px !important;
+	}
 	input, select{
 		padding:rem-calc(5) rem-calc(10);
 		border:1px solid transparent;
@@ -114,9 +119,6 @@
 		line-height: rem-calc(40);
 		font-family: $body-font;
 		color: $brand-dark-grey;
-		-webkit-appearance: none  !important;
-		-webkit-border-radius: 0px !important;
-		border-radius:0px !important;
 		&[type="submit"]{
 			background-color:$brand-secondary;
 			color: white;
@@ -127,6 +129,15 @@
 				color: $brand-primary;
 				background-color: white;
 			}
+		}
+		&[type="checkbox"]{
+			height:auto;
+		}
+	}
+	label{
+		a{
+			color:white;
+			border-bottom:1px solid white;
 		}
 	}
 	.hb-column-third{
