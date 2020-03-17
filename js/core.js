@@ -95,13 +95,22 @@ jQuery(document).ready(function( $ ) {
   });
 
   $(window).on('resize scroll', function() {
+
     if ($(".booking-form").isInViewport()) {
-        console.log('on screen');
-      $(".make-booking").addClass("active");
+      var windowBottom = $(window).height();
+      var contactBarHeight = $('.contact-bar').height();
+      $('.make-booking').css('top', windowBottom - (contactBarHeight + 75));
     } else {
-        $(".make-booking").removeClass("active");
+        $('.make-booking').css('top', '100vh');
     }
   });
+
+
+$('.hb-resa-summary-content').append("<div class='hb-summary-guest heading heading__sm heading__caps heading__tertiary-color'><strong>No of Guests</strong></div><div class='hb-summary-itinerary  heading heading__sm heading__caps heading__tertiary-color'><strong>Itinerary</strong></div>");
+
+var contactBarHeight = $('.contact-bar').height();
+
+
 
 // GLOBAL OWL CAROUSEL SETTINGS
 

@@ -17,7 +17,7 @@ get_header();
 
 		<?php get_template_part( 'template-parts/bookings-hero' );?>
 
-		<div class="booking-form pl2 pr2 pb2 pt2 mr1 ml1">
+		<div class="booking-form pl2 pr2 pb2 pt2">
 		    <?php echo do_shortcode('[hb_booking_form]'); ?>
 		</div>
 

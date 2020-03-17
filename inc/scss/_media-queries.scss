@@ -156,7 +156,7 @@ body {
 /*---CONTENT---*/
 .local-images{
   img{
-    width:rem-calc(42);
+    width:rem-calc(30);
   }
 }
   
@@ -179,7 +179,12 @@ body {
 /*---GLOBALS---*/
 
 body {
-  font-size: 0.5em;
+  font-size: 80%;
+}
+.heading{
+  &__xl{
+    font-size:rem-calc(26);
+  } 
 }
 
 /*---HEADER---*/
@@ -210,8 +215,72 @@ body .hamburger-inner span {
 }
 
 /*---CONTENT---*/
-.booking-form.sticky {
+.hero-slider{
+  .owl-dots{
+    padding-bottom:rem-calc(20);
+  }
+}
+
+.feature-item{
+  max-width:50%;
+}
+
+.booking-form {
+  &.sticky{
     position: relative;
+  }
+  .hb-accom-list{
+    top:rem-calc(62);
+  }
+  .hb-resa-summary-content{
+    margin-top:1em;
+    background-color:$brand-dark-grey;
+    border-radius:0px;
+    border:0px;
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    div{
+      &:nth-of-type(1){
+        grid-column:1/2;
+        grid-row:2/3;
+      }
+      &:nth-of-type(2){
+        grid-column:1/2;
+        grid-row:3/4;
+      }
+      &:nth-of-type(3){
+        grid-column:1/2;
+        grid-row:4/5;
+      }
+      &:nth-of-type(4){
+        grid-column:1/2;
+        grid-row:6/7;
+      }
+      &:nth-of-type(5){
+        grid-column:1/2;
+        grid-row:7/8;
+      }
+      &.hb-summary-accom-price{
+        display:none;
+      }
+      &.hb-summary-discount-amount{
+        display:none;
+      }
+      &.hb-summary-total-price{
+        grid-column:1/2;
+        grid-row:8/9;
+      }
+      &.hb-summary-itinerary{
+        grid-column:1/2;
+        grid-row:1/2;
+      }
+      &.hb-summary-guest{
+        grid-column:1/2;
+        grid-row:5/6;
+      }
+    }
+  }
 }
 .hide-sm{
   display:none;
@@ -344,11 +413,17 @@ body .hamburger-inner span {
 .hb-column-half{
   p{
     width:100% !important;
+    padding-right:0 !important;
   }
 }
 .hb-resa-summary-content{
   div{
     padding-top:rem-calc(15);
+  }
+}
+.contact-form{
+  .pl2{
+    padding-left:0;
   }
 }
 
