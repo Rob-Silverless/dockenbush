@@ -216,18 +216,22 @@ var contactBarHeight = $('.contact-bar').height();
         $('.eat-container').slideUp();
         $('.eat-mob-container').slideUp();
         $('.things-container').slideToggle();
+        $(this).toggleClass('active');
+        $('#eat, #eat-mob').removeClass('active');
     });
     $('#eat').on('click', function(e){
         e.preventDefault();
         $('.things-container').slideUp();
         $('.eat-container').slideToggle();
-
+        $(this).toggleClass('active');
+        $('#things, #eat-mob').removeClass('active');
     });
 
     $('#eat-mob').on('click', function(e){
         e.preventDefault();
         $('.things-container').slideUp();
         $('.eat-mob-container').slideToggle();
-
+        $(this).toggleClass('active');
+        $('#eat, #things').removeClass('active');
     });
 });//Don't remove ---- end of jQuery wrapper

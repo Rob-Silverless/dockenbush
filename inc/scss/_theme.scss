@@ -141,6 +141,10 @@
 			border-bottom:1px solid white;
 		}
 	}
+	.hb-accom-page .hb-accom{
+		border-top:1px solid white;
+		border-bottom:1px solid white;
+	}
 	.hb-column-third{
 		width:61.22%;
 	}
@@ -157,9 +161,7 @@
 		padding-top:1em;
 	}
 	.hb-accom-list{
-		position: -webkit-sticky;
-		position: sticky;
-		top: rem-calc(66);
+		
 		margin-bottom: 2em;
 		background-color:$brand-tertiary;
 	}
@@ -171,6 +173,8 @@
 		display:grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(4, 1fr);
+		padding-top:2rem;
+		padding-bottom:2rem;
 		div{
 			&:nth-of-type(1){
 				grid-column:1/2;
@@ -203,6 +207,14 @@
 			&.hb-summary-total-price{
 				grid-column:3/4;
 				grid-row:4/5;
+				font-weight:700;
+				color:$brand-tertiary;
+				text-transform:uppercase;
+				.hb-price-placeholder{
+					font-size: 2rem;
+				    color: white;
+				    font-weight: 300;
+				}
 			}
 			&.hb-summary-itinerary{
 				grid-column:1/2;
@@ -289,6 +301,7 @@
 	background-color:$brand-dark-grey;
 	border:5px solid $brand-dark-grey;
 	transition:$fastEffect;
+	position:relative;
 	&:hover{
 		background-color:transparent;
 		transition: $fastEffect;
@@ -300,12 +313,30 @@
 			fill:$brand-dark-grey;
 		}
 	}
+	&:after{
+		height:0em;
+		background-color:$brand-dark-grey;
+		content:'';
+		position:absolute;
+		top:calc(100% + 4px);
+		left:-5px;
+		right:-5px;
+		transition: $fastEffect;
+		transition-delay:.2s;
+	}
+	&.active{
+		&:after{
+			height:1.2em;
+			transition: $fastEffect;
+		}
+	}
 }
 #eat, #eat-mob{
 	background-color: $brand-primary;
 	border:5px solid $brand-primary;
 	transition:$fastEffect;
 	cursor: pointer;
+	position:relative;
 	&:hover{
 		background-color:transparent;
 		transition: $fastEffect;
@@ -314,6 +345,23 @@
 		}
 		svg path{
 			fill:$brand-primary;
+		}
+	}
+	&:after{
+		height:0em;
+		background-color:$brand-primary;
+		content:'';
+		position:absolute;
+		top:calc(100% + 4px);
+		left:-5px;
+		right:-5px;
+		transition: $fastEffect;
+		transition-delay:.2s;
+	}
+	&.active{
+		&:after{
+			height:1.2em;
+			transition: $fastEffect;
 		}
 	}
 }
