@@ -129,7 +129,7 @@
 
                     <div>
 
-                        <a href="/terms-and-conditions">Terms</a>
+                        <a href="/terms-conditions">Terms</a>
 
                         <a href="/privacy">Privacy</a>
 
